@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+body{
+    background-color: #262640;
+    color: white;
+    font-family: Asap, sans-serif;
+}
+
+header {
+    padding: 10px 0;
+    text-align: center;
+    background-color: #CCCCE1;
+    color: black;
+}
+
+.scoreBoard {
+    border: 3px solid white;
+    width: 150px;
+    margin: 20px auto;
+    padding: 20px 0;
+    display: flex;
+    /* position: relative; */
+}
+
+.badge {
+    background-color: red;
+    padding: 5px 10px ;
+}
+
+#userBadge {
+    /* position: absolute; */
+    top: 20px;
+    left: -50px;
+}
+
+#compBadge {
+    /* position: absolute; */
+    top: 20px;
+    right: -50px;
+}
+
+.choice {
+    display:flex;
+    justify-content: center;
+}
+
+.choices {
+    margin: 10px;
+    padding: 13px 30px;
+    border-radius: 50%;
+    background-color: white;
+}
