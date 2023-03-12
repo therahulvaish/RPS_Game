@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
-  <title>Sample File</title>
+  <title>RPS Game</title>
 </head>
 
 <body>
@@ -14,22 +14,24 @@
     <h2>Rock Paper Scissors</h2>
   </header>
 
-  <div class="scoreBoard">
-    <div id="userBadge" class="badge">user</div>
-    <div id="compBadge" class="badge">comp</div>
-    <span id="userScore">0</span>:<span id="compScore">0</span>
+  <div class="score-board">
+    <div id="user-badge" class="badge">user</div>
+    <div class="score">
+      <span id="user-score">0</span>:<span id="comp-score">0</span>
+    </div>
+    <div id="comp-badge" class="badge">comp</div>
   </div>
 
-  <p></p>
+  <p id="result" style="font-size: 25px;"></p>
 
-  <div class="choice">
-    <div class="choices" id="rock">
+  <div class="choices">
+    <div class="choice" id="rock">
       <img src="images/rock.jpg" alt="rock">
     </div>
-    <div class="choices" id="paper">
+    <div class="choice" id="paper">
       <img src="images/paper.jpg" alt="papar">
     </div>
-    <div class="choices" id="scissors">
+    <div class="choice" id="scissors">
       <img src="images/scissors.jpg" alt="scissors">
     </div>
   </div>
