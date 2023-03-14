@@ -1,56 +1,96 @@
-// let div_rock = document.getElementById("rock");
-// let div_paper = document.getElementById("paper");
-// let div_scissors = document.getElementById("scissors");
+// Variables 
+let userScore = 0;
+let compScore = 0;
 
-// div_rock.addEventListener('click', function () {
-//   console.log("You clicked on Rock");
-// })
-// div_paper.addEventListener('click', function () {
-//   console.log("You clicked on paper");
-// })
-// div_scissors.addEventListener('click', function () {
-//   console.log("You clicked on scissors");
-// })
+const userScore_span = document.querySelector('#user-score');
+const compScore_span = document.querySelector('#comp-score');
+const displayResult = document.querySelector('#result');
 
-function getComputerChoice () {
-    let choices = ["rock","paper","scissors"]; 
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+const resetButton = document.querySelector('#reset');
+
+// Game Play Function
+
+function getComputerChoice() {
+    let choices = ["rock", "paper", "scissors"];
     let index = Math.floor(Math.random() * choices.length);
     return choices[index];
-  }
+}
 
+function playerWon() {
+    userScore++;
+    userScore_span.innerHTML = userScore;
+    displayResult.innerText = "Player Won!!";
+    displayResult.style.color = 'green';
+}
 
-  function playRound(playerSelection, computerSelection) {
-  
-    if (computerSelection == "rock" && playerSelection == "paper") {
-      console.log(`${playerSelection} beats ${computerSelection}, User Won! `)
+function computerWon() {
+    compScore++;
+    compScore_span.innerHTML = compScore;
+    displayResult.innerText = "Computer Won!!";
+    displayResult.style.color = 'red';
+}
+
+function tie() {
+    displayResult.innerText = "Tt's a tie!!";
+    displayResult.style.color = 'yellow';
+}
+
+function buttonChoice(playerSelection) {
+    const computerSelection = getComputerChoice();
+    let result = playerSelection + computerSelection;
+
+    switch (result) {
+
+        case 'paperrock':
+        case 'rockscissors':
+        case 'scissorspaper':
+            playerWon();
+            break;
+
+        case 'rockpaper':
+        case 'paperscissors':
+        case 'scissorsrock':
+            computerWon();
+            break;
+
+        case 'rockrock':
+        case 'paperpaper':
+        case 'scissorsscissors':
+            tie();
+            break;
+
     }
 
-    else if (computerSelection == "rock" && playerSelection == "scissors") {
-      console.log(`${computerSelection} beats ${playerSelection}, Computer Won! `)
-    }
+}
 
-    else if (computerSelection == "paper" && playerSelection == "rock") {
-      console.log(`${computerSelection} beats ${playerSelection}, Computer Won! `)
-    }
+// Click Event on choices
 
-    else if (computerSelection == "paper" && playerSelection == "scissors") {
-      console.log(`${playerSelection} beats ${computerSelection}, User Won! `)
-    }
+rockButton.addEventListener('click', function () {
+    buttonChoice('rock');
+})
+paperButton.addEventListener('click', function () {
+    buttonChoice('paper');
+})
+scissorsButton.addEventListener('click', function () {
+    buttonChoice('scissors');
+})
 
-    else if (computerSelection == "scissors" && playerSelection == "rock") {
-      console.log(`${playerSelection} beats ${computerSelection}, User Won! `)
-    }
 
-    else if (computerSelection == "scissors" && playerSelection == "paper") {
-      console.log(`${computerSelection} beats ${playerSelection}, Computer Won! `)
-    }
+// Reset Button
 
-    else if (computerSelection == playerSelection) {
-      console.log(`Its ${playerSelection} and ${computerSelection}, So its a tie `);
-    }
+resetButton.addEventListener('click', function(){
 
-  }
+    userScore = 0;
+    compScore = 0;
 
-  // for (i=1; i <= 5; i++) {
-  //   console.log(playRound(prompt('Enter your choice'), getComputerChoice()));
-  // }
+    userScore_span.innerHTML = userScore;
+    compScore_span.innerHTML = compScore;
+
+    displayResult.innerText = '';
+
+})
+

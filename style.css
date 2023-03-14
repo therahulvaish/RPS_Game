@@ -67,8 +67,18 @@ h2 {
     
 }
 
+/* Reset Button */
+
+#reset {
+    margin-top: 20px; 
+    font-size: 1.2rem; 
+    padding: 8px;
+    border-radius: 10px;
+}
+
 /* footer */
 
 footer {
     font-size: 24px;
 }
+
